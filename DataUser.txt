@@ -1,0 +1,7 @@
+Admin
+username:admin
+password:admin
+
+Petugas
+username:kasir2
+password:kasir2
