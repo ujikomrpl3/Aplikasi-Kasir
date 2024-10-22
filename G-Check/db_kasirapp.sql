@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2024 at 04:14 AM
+-- Generation Time: Oct 22, 2024 at 07:45 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -110,7 +110,15 @@ INSERT INTO `detail_penjualan` (`detail_id`, `kode_produk`, `nama_produk`, `harg
 (70, 'E.001', 'Monitor', 200000, 1, 31),
 (71, 'E.001', 'Monitor', 200000, 1, 32),
 (72, 'E.001', 'Monitor', 200000, 1, 33),
-(73, 'E.001', 'Monitor', 200000, 1, 34);
+(73, 'E.001', 'Monitor', 200000, 1, 34),
+(74, 'E.002', 'Ram 8Gb DDR3', 100000, 1, 36),
+(75, 'E.001', 'Monitor', 200000, 3, 38),
+(76, 'E.002', 'Ram 8Gb DDR3', 100000, 5, 40),
+(77, 'F.002', 'Hardisk 500Gb', 100000, 1, 40),
+(78, 'E.001', 'Monitor', 200000, 3, 41),
+(79, 'E.001', 'Monitor', 200000, 3, 42),
+(80, 'E.003', 'Mouse USB', 85000, 1, 42),
+(81, 'E.003', 'Mouse USB', 85000, 2, 44);
 
 -- --------------------------------------------------------
 
@@ -133,7 +141,10 @@ CREATE TABLE `pelanggan` (
 INSERT INTO `pelanggan` (`id_pelanggan`, `kode_pelanggan`, `nama_pelanggan`, `alamat`, `no_hp`) VALUES
 (1, 'P.001', 'Heman', 'Jl. K.H. Abdul Halim No. 2000 Majalengka', '087889875898'),
 (2, 'P.002', 'Mustofa Kamal', 'Blok Sereh No. 20 Majalengka', '085222333444'),
-(3, 'P.003', 'Sutisna', 'Jl.Dahlia No.35 Majalengka', '087879087651');
+(3, 'P.003', 'Sutisna', 'Jl.Dahlia No.35 Majalengka', '087879087651'),
+(4, 'P.004', 'Azriel Kamal', 'Desa Mekarsari Blok Ciledug ', '087889875899'),
+(5, 'P.005', 'Husna Muhsani', 'Desa Bojong Gede , Blok Pahlawan', '085666765567'),
+(6, 'P.006', 'Sumarni Ainun', 'Desa Cicadas Blok Pakauman No65', '083444543258');
 
 -- --------------------------------------------------------
 
@@ -189,7 +200,18 @@ INSERT INTO `penjualan` (`penjualan_id`, `tanggal`, `total_harga`, `bayar`, `id_
 (31, '2024-10-17 08:18:23', 200000, 200000, NULL, 1, 'Diaz Fajri An N'),
 (32, '2024-10-17 08:24:41', 200000, 200000, NULL, 1, 'Diaz Fajri An N'),
 (33, '2024-10-17 08:37:40', 200000, 200000, NULL, 1, 'Diaz Fajri An N'),
-(34, '2024-10-17 08:41:07', 200000, 200000, 1, 1, 'Diaz Fajri An N');
+(34, '2024-10-17 08:41:07', 200000, 200000, 1, 1, 'Diaz Fajri An N'),
+(35, '2024-10-19 12:32:23', NULL, NULL, NULL, 0, NULL),
+(36, '2024-10-21 19:03:00', 100000, 100000, NULL, 1, 'Diaz Fajri An N'),
+(37, '2024-10-22 08:20:49', NULL, NULL, NULL, 0, NULL),
+(38, '2024-10-22 08:36:04', 600000, 600000, 5, 1, 'Diaz Fajri An N'),
+(39, '2024-10-22 08:43:15', NULL, NULL, NULL, 0, NULL),
+(40, '2024-10-22 08:44:20', 600000, 700000, NULL, 4, 'Lies Ayu'),
+(41, '2024-10-22 09:07:29', 600000, 700000, NULL, 1, 'Diaz Fajri An N'),
+(42, '2024-10-22 09:34:53', 685000, 700000, NULL, 1, 'Diaz Fajri An N'),
+(43, '2024-10-22 09:43:14', NULL, NULL, 2, 0, NULL),
+(44, '2024-10-22 12:09:47', 170000, 180000, NULL, 1, 'Diaz Fajri An N'),
+(45, '2024-10-22 12:19:04', NULL, NULL, NULL, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -213,7 +235,10 @@ INSERT INTO `petugas` (`id_petugas`, `username`, `password`, `nama_petugas`, `le
 (1, 'admin', '$2y$10$fLm0bttQzBRjSg/if/zO4.KegWHsYJ.C3E5aXkPzI/s32sV/Ub3l6', 'Diaz Fajri An N', 'admin'),
 (2, 'kasir2', '$2y$10$PyMDSQp6r7Cz0VWBMQSv2OsghgMLa4hRCXcuvkNp8A2OfgfzBspKu', 'Ayu Kurnia', 'petugas'),
 (4, 'kasir1', '$2y$10$FhVNwpbbsvgYLHYTiHVZVOiSPmuCh9NJRIEIAq4xdaaRHEr.06Xme', 'Lies Ayu', 'petugas'),
-(5, 'kasir3', '$2y$10$qJbU5D0yxh5Hk5TUlPSNCuld9RuClbS83cscLbwGt3tcpTQgeiv6S', 'Reyhan Efendi', 'petugas');
+(5, 'kasir3', '$2y$10$qJbU5D0yxh5Hk5TUlPSNCuld9RuClbS83cscLbwGt3tcpTQgeiv6S', 'Reyhan Efendi', 'petugas'),
+(6, 'kasir4', '$2y$10$I6HUaWKlSVD4T799ijrXhOTGKsxZTQaf.QKR4X9eTJcW7MJfE1Tgy', 'Aditya', 'petugas'),
+(7, 'kasir5', '$2y$10$zPmIoCjoWc2PY8p7NX3UhuvaDfP4yu2n2akHCnvsMH3ZZuShpfv7K', 'Lutfiar', 'petugas'),
+(8, 'kasir6', '$2y$10$mgofZ6wTx/vldxuDoS6haeyueeN17eiEWIVo5huQh7j0w9TqzzlMC', 'Ramzi', 'petugas');
 
 -- --------------------------------------------------------
 
@@ -317,25 +342,25 @@ ALTER TABLE `tambah_stok`
 -- AUTO_INCREMENT for table `detail_penjualan`
 --
 ALTER TABLE `detail_penjualan`
-  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `penjualan`
 --
 ALTER TABLE `penjualan`
-  MODIFY `penjualan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `penjualan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `petugas`
 --
 ALTER TABLE `petugas`
-  MODIFY `id_petugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_petugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `produk`

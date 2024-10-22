@@ -6,6 +6,7 @@ if(isset($_POST['save'])){
 	$penid=$_SESSION['penid'];
 	$id_petugas=$_SESSION['id_petugas'];
 	$nama_petugas=$_SESSION['nama_petugas'];
+	$bayar=preg_replace('/[^\d]/','',$bayar);
 	if($bayar<$jmltotal){
 		echo "<script>alert('Jumlah Bayar Kurang dari $jmltotal !')</script>";
 	}else{

@@ -58,20 +58,20 @@ if (!isset($_SESSION['penid'])) {
 							<?php
 							} else {
 							?>
-								<form class="d-flex" method="POST" action="pelanggan_simpan.php">
-									<input list="id_pelanggan" id="ip" name="ip" autocomplete="off" required placeholder="Pelanggan" class="form-control me-2" />
-									<datalist id="id_pelanggan">
+								<form class="d-flex gap-2" method="POST" action="pelanggan_simpan.php">
+									<select id="ip" name="ip" required class="form-select ">
+										<option value="" disabled selected>Pelanggan</option>
 										<?php
 										include "../config.php";
 										$sqlpl = "select * from pelanggan";
 										$respl = mysqli_query($koneksi, $sqlpl);
 										while ($dtl = mysqli_fetch_array($respl)) {
 										?>
-											<option value="<?= $dtl['id_pelanggan'] ?>"><?= $dtl['kode_pelanggan'] ?> | <?= $dtl['nama_pelanggan'] ?> Hp. <?= $dtl['no_hp'] ?></option>
+											<option value="<?= $dtl['id_pelanggan'] ?>"><?= $dtl['nama_pelanggan'] ?></option>
 										<?php
 										}
 										?>
-									</datalist>
+									</select>
 									<button class="btn btn-primary" type="submit" name="save"><img src="../icon/floppy.svg" width="20"></button>
 								</form>
 							<?php
@@ -88,30 +88,28 @@ if (!isset($_SESSION['penid'])) {
 
 						<div class="row">
 							<div class="col-sm-8">
-								<form class="d-flex" method="POST" action="simpan.php">
+								<form class="d-flex gap-2" method="POST" action="simpan.php">
 									<?php
 									if (isset($_GET['kp'])) {
 										$kp = $_GET['kp'];
 									?>
-										<input class="form-control me-2" type="text" name="kp" value="<?= $kp ?>">
+										<input class="form-control me-1" type="text" name="kp" value="<?= $kp ?>">
 									<?php
 									} else {
 									?>
-										<input list="kode_produk" id="kp" name="kp" autocomplete="off" required placeholder="Kode Produk" class="form-control me-2" />
-										<datalist id="kode_produk">
+										<select id="kp" name="kp" required class="form-select" >
+											<option value="" disabled selected>Produk</option>
 											<?php
 											include "../config.php";
 											$sqlp = "select * from produk";
 											$resp = mysqli_query($koneksi, $sqlp);
 											while ($dt = mysqli_fetch_array($resp)) {
 											?>
-												<option value="<?= $dt['kode_produk'] ?>"><?= $dt['nama_produk'] ?> | <?= $dt['harga'] ?> | <?= $dt['stok'] ?> </option>
+												<option value="<?= $dt['kode_produk'] ?>"><?= $dt['nama_produk'] ?></option>
 											<?php
 											}
 											?>
-										</datalist>
-
-
+										</select>
 									<?php
 									}
 									?>
@@ -346,7 +344,7 @@ if (!isset($_SESSION['penid'])) {
 						<div class="container border p-2 bg-light text-dark rounded text-center my-1">
 							<form class="d-flex" method="POST" action="bayar.php">
 								<input type="hidden" name="jmltotal" value="<?= $jmltot ?>">
-								<input class="form-control me-2" type="number" placeholder="Bayar" name="bayar">
+								<input class="form-control me-2" type="text" placeholder="Bayar" name="bayar" id="tanpa-rupiah">
 								<button class="btn btn-primary" type="submit" name="save"><img src="../icon/kalkulator.svg" width="25"></button>
 							</form>
 						</div>
@@ -357,6 +355,7 @@ if (!isset($_SESSION['penid'])) {
 	</main>
 	<!-- <?php include "../footer.php" ?> -->
 	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script src="../rupiah.js"></script>
 </body>
 
 </html>

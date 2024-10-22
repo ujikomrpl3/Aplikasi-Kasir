@@ -1,15 +1,13 @@
 <?php  
 session_start();
-if(isset($_GET['penid'])){
-$penid=$_GET['penid'];
-$kbl=$_GET['kbl'];
+if(isset($_SESSION['penid'])){
+$nama_petugas=$_SESSION['nama_petugas'];
+$penid=$_SESSION['penid'];
+$tgl=$_SESSION['tgl'];
 include "../config.php";
 $sqlpenjualan="select * from penjualan where penjualan_id='$penid'";
 $respenjualan=mysqli_query($koneksi,$sqlpenjualan);
 $dtpenjualan=mysqli_fetch_array($respenjualan);
-$tgl=$dtpenjualan['tanggal'];
-$bayar=$dtpenjualan['bayar'];
-$nbayar=number_format($bayar,0,",",".");
 $id_pelanggan=$dtpenjualan['id_pelanggan'];
 if (!$id_pelanggan){
 	$dtpelanggan['nama_pelanggan']='umum';
@@ -31,7 +29,6 @@ $npet=$dtpetugas['nama_petugas'];
 	<title>Daftar Pembayaran</title>
 	<!-- <link rel="stylesheet" type="text/css" href="../style.css"> -->
 	<link rel="stylesheet" href="print.css?time=<?= md5(time()) ?>">
-	<link href="../img/logo.png" rel='shortcut icon'> 
 </head>
 <body class="struk" onload="printOut()">
 <section class="sheet">
@@ -41,7 +38,7 @@ $npet=$dtpetugas['nama_petugas'];
 	Jl. Siliwangi No. 30 Kadipaten Majalengka<br>
 	Telp. 088222333001 <br>
 </center>
-<?php echo str_repeat("=", 56) ?>
+<?php echo str_repeat("=", 40) ?>
 <table width="100%" cellspacing="0">
 	<tr>
 		<td style="padding:2px 5px;">Tgl : <?= $tgl ?></td>
@@ -56,7 +53,7 @@ $npet=$dtpetugas['nama_petugas'];
 		<td  style="padding:2px 5px;">Kasir : <?= $npet ?></td>
 	</tr>
 </table>
-<?php echo str_repeat("-", 56) ?>
+<?php echo str_repeat("-", 40) ?>
 <table width="100%" cellspacing="0">
 	<?php 
 	include "../config.php";
@@ -89,23 +86,33 @@ $npet=$dtpetugas['nama_petugas'];
 <table width="100%" cellspacing="0">
 		<tr>
 			<td colspan="3">
-				<?= str_repeat("-", 56) ?>
+				<?= str_repeat("-", 40) ?>
 			</td>
 		</tr>
 		<tr>
 			<td align="right" style="padding:5px 5px;">Total :</td>
 			<th align="right" style="font-size:10pt; padding:2px 5px;"><?= $jmltotal ?></th>
 		</tr>
+		<?php  
+		if(isset($_SESSION['bayar'])){
+			$bayar=$_SESSION['bayar'];
+			$nbayar=number_format($bayar,"0",",",".");
+			$kembali=$bayar-$jmltot;
+			$nkembali=number_format($kembali,"0",",",".");
+			?>
 		<tr>
 			<td align="right" style="padding:5px 5px;">Bayar :</td>
 			<td align="right" style="padding:5px 5px;"><?= $nbayar ?></td>
 		</tr>
 		<tr>
 			<td align="right" style="padding:5px 5px;">Kembali :</td>
-			<td align="right" style="padding:5px 5px;"><?= $kbl ?></td>
+			<td align="right" style="padding:5px 5px;"><?= $nkembali ?></td>
 		</tr>
+			<?php
+		}
+		?>
 </table>
-<?= str_repeat("-", 56) ?>
+<?= str_repeat("-", 40) ?>
 <br>
 <center>
 Terima Kasih atas Kunjungan Anda <br>

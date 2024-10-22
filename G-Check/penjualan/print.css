@@ -22,7 +22,7 @@ td {
 
 /** Paper sizes **/
 body.struk .sheet {
-  width: 80mm;
+  width: 58mm;
 }
 
 body.struk .sheet {
@@ -62,7 +62,7 @@ body.struk .sheet {
   }
 
   body.struk {
-    width: 80mm;
+    width: 58mm;
     text-align: left;
   }
 

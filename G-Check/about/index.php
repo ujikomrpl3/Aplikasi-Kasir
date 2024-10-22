@@ -82,7 +82,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
                         <div class="card-border mt-3">
                             <div class="card-body">
                                 <img src="../Foto/reyhan2.jpg" class="img-fluid w-50 rounded-circle m-2" loading="lazy">
-                                <p>Nama : Reyhan Efendi</p>
+                                <p>Nama : Rayhan Efendi</p>
                                 <p>Kelas : 12 Rpl 3</p>
                                 <p>Asal Sekolah : SMKN 1 KADIPATEN</p>
                             </div>
